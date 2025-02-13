@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
 
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
+  const { login, isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/admin/dashboard");
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,17 +25,15 @@ const AdminLogin = () => {
         "http://localhost:8080/api/admin/login",
         credentials,
       );
-      localStorage.setItem("adminToken", response.data.token);
-      navigate("/admin/dashboard");
+      login(response.data.token);
     } catch {
       setError("Invalid credentials");
     }
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <h2>Admin Login</h2>
-      {error && <p className="error">{error}</p>}
       <form onSubmit={handleLogin}>
         <input
           type="text"
@@ -49,6 +55,7 @@ const AdminLogin = () => {
         />
         <button type="submit">Login</button>
       </form>
+      {error && <p className="error">{error}</p>}
     </div>
   );
 };

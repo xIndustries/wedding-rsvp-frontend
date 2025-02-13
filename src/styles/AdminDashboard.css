@@ -1,0 +1,92 @@
+/* Admin Dashboard Container */
+.admin-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading */
+.admin-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Reminder Button */
+.reminder-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reminder-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Table Container */
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Guest Table */
+.guest-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.guest-table th,
+.guest-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.guest-table th {
+    background-color: #f4f4f4;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.guest-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* RSVP Status Colors */
+.attending {
+    color: green;
+    font-weight: bold;
+}
+
+.not-attending {
+    color: red;
+    font-weight: bold;
+}
+
+.maybe {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .admin-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .guest-table th,
+    .guest-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

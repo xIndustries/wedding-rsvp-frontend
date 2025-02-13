@@ -4,6 +4,7 @@ import RSVP from "./pages/RSVP";
 import Confirmation from "./pages/Confirmation";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import PrivateRoute from "./components/PrivateRoute";
 
 const AppRouter = () => {
   return (
@@ -12,7 +13,14 @@ const AppRouter = () => {
       <Route path="/invite/:token" element={<RSVP />} />
       <Route path="/confirmation" element={<Confirmation />} />
       <Route path="/admin" element={<AdminLogin />} />
-      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route
+        path="/admin/dashboard"
+        element={
+          <PrivateRoute>
+            <AdminDashboard />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 };

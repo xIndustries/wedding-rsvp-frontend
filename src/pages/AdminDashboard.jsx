@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
+import "../styles/AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [guests, setGuests] = useState([]);
+  const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +20,8 @@ const AdminDashboard = () => {
           },
         );
         setGuests(response.data);
-      } catch {
+      } catch (err) {
+        console.error("Error fetching guests:", err);
         navigate("/admin");
       }
     };
@@ -25,26 +29,42 @@ const AdminDashboard = () => {
   }, [navigate]);
 
   return (
-    <div className="container">
-      <h2>Admin Dashboard</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>RSVP</th>
-          </tr>
-        </thead>
-        <tbody>
-          {guests.map((guest) => (
-            <tr key={guest.id}>
-              <td>{guest.name}</td>
-              <td>{guest.email}</td>
-              <td>{guest.rsvp || "No Response"}</td>
+    <div className="admin-container">
+      <h2>RSVP Admin Dashboard</h2>
+      <button className="logout-btn" onClick={logout}>
+        Logout
+      </button>
+
+      <div className="table-container">
+        <table className="guest-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>RSVP</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {guests.map((guest) => (
+              <tr key={guest.id}>
+                <td>{guest.name}</td>
+                <td>{guest.email}</td>
+                <td
+                  className={
+                    guest.rsvp === "Attending"
+                      ? "attending"
+                      : guest.rsvp === "Not Attending"
+                        ? "not-attending"
+                        : "maybe"
+                  }
+                >
+                  {guest.rsvp || "No Response"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
