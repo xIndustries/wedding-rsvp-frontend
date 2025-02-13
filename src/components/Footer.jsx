@@ -1,9 +1,7 @@
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>
-        &copy; {new Date().getFullYear()} Wedding RSVP. All rights reserved.
-      </p>
+      <p>&copy; {new Date().getFullYear()} Axel & Daphne</p>
     </footer>
   );
 };

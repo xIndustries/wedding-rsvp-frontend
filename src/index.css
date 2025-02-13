@@ -1,33 +1,59 @@
-body {
-    font-family: Arial, sans-serif;
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap");
+
+/* Ensure the page takes up the full height */
+html,
+body,
+#root {
+    height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", sans-serif; /* Modern and professional */
     background-color: #f8f9fa;
     color: #333;
 }
 
+/* The main app container fills the remaining space */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* The main content grows to push the footer down */
+.main-content {
+    flex-grow: 1;
+}
+
+/* Styling for the header */
 .header {
     background-color: #007bff;
     color: white;
     padding: 10px;
     text-align: center;
+    font-weight: 600;
 }
 
 .header nav a {
     color: white;
     text-decoration: none;
     margin-left: 15px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
+/* Footer now sticks to the bottom */
 .footer {
     text-align: center;
     padding: 10px;
-    margin-top: 20px;
     background-color: #343a40;
     color: white;
+    margin-top: auto; /* Ensures it stays at the bottom */
+    font-weight: 300;
 }
 
+/* Container styles for content */
 .container {
     max-width: 600px;
     margin: 50px auto;
@@ -36,4 +62,42 @@ body {
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+/* Headings with elegant styling */
+h1,
+h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+}
+
+/* Button styles for RSVP */
+button {
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+button:first-of-type {
+    background-color: #28a745;
+    color: white;
+}
+
+button:nth-of-type(2) {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:last-of-type {
+    background-color: #ffc107;
+    color: black;
 }
