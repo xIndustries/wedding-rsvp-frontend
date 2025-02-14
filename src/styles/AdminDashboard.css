@@ -1,92 +1,148 @@
-/* Admin Dashboard Container */
-.admin-container {
-    max-width: 900px;
-    margin: 40px auto;
+/* 🎯 Import Orbitron Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+
+/* 🌌 Neo-Solarized Dark Theme for Admin Dashboard */
+.admin-dashboard-theme {
+    background-color: #002b36; /* Neo-Solarized Dark Base */
+    color: #839496; /* Soft Text Color */
+    font-family: "Orbitron", sans-serif !important; /* Forces Orbitron */
+    min-height: 100vh;
     padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
-/* Heading */
-.admin-container h2 {
-    color: #333;
-    font-size: 24px;
+/* 🚀 Admin Dashboard Header */
+.admin-dashboard-header {
+    background: linear-gradient(
+        90deg,
+        #073642,
+        #586e75
+    ); /* Subtle dark gradient */
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(88, 110, 117, 0.5);
+}
+
+/* 🏆 Title */
+.admin-dashboard-header h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #b58900; /* Amber Yellow for Solarized Highlight */
+    font-family: "Orbitron", sans-serif !important;
+}
+
+/* 📊 RSVP Stats */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 800px;
     margin-bottom: 20px;
 }
 
-/* Reminder Button */
-.reminder-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
+.stat-box {
+    background: rgba(7, 54, 66, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(131, 148, 150, 0.3);
+    text-align: center;
+    width: 30%;
+}
+
+.stat-number {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #2aa198; /* Futuristic Cyan */
+}
+
+.stat-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #93a1a1;
+}
+
+/* 🖥 Guest Table */
+.table-container {
+    background: #073642; /* Deep Dark Background */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(88, 110, 117, 0.4);
+    width: 90%;
+    max-width: 800px;
+}
+
+/* 📄 Table Styles */
+.guest-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* 🌟 Table Header */
+.guest-table thead {
+    background: #586e75;
+    color: #eee8d5;
+    font-size: 1rem;
+}
+
+/* 🔷 Table Cells */
+.guest-table th,
+.guest-table td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(131, 148, 150, 0.2);
+}
+
+/* 🏁 RSVP Dropdown */
+.guest-table select {
+    background: rgba(131, 148, 150, 0.2);
+    border: 1px solid #268bd2; /* Bright Blue */
+    color: #eee8d5;
+    padding: 5px;
+    font-size: 1rem;
     border-radius: 5px;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif !important; /* Ensures Orbitron for dropdown */
+    transition: all 0.3s;
+}
+
+.guest-table select:hover {
+    background: rgba(131, 148, 150, 0.4);
+}
+
+/* 🎨 RSVP Colors */
+.attending {
+    color: #2aa198; /* Cyan */
+}
+
+.not-attending {
+    color: #dc322f; /* Bright Red */
+}
+
+.maybe {
+    color: #b58900; /* Amber */
+}
+
+/* 🔘 Futuristic Buttons */
+button {
+    background: linear-gradient(90deg, #268bd2, #2aa198);
+    color: #002b36;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.reminder-btn:hover {
-    background-color: #0056b3;
+button:hover {
+    box-shadow: 0 0 10px rgba(38, 139, 210, 0.6);
+    transform: scale(1.05);
 }
 
-/* Table Container */
-.table-container {
-    overflow-x: auto;
-    margin-top: 20px;
-}
-
-/* Guest Table */
-.guest-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.guest-table th,
-.guest-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-.guest-table th {
-    background-color: #f4f4f4;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.guest-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* RSVP Status Colors */
-.attending {
-    color: green;
-    font-weight: bold;
-}
-
-.not-attending {
-    color: red;
-    font-weight: bold;
-}
-
-.maybe {
-    color: orange;
-    font-weight: bold;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .admin-container {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .guest-table th,
-    .guest-table td {
-        font-size: 14px;
-        padding: 8px;
-    }
+/* 🏎 Logout Button */
+.logout-btn {
+    margin-top: 10px;
+    background: linear-gradient(45deg, #dc322f, #b58900);
+    color: white;
 }
