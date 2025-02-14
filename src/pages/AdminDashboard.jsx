@@ -130,16 +130,12 @@ const AdminDashboard = () => {
   return (
     <div className="admin-dashboard-theme">
       <div className="admin-container">
-        {/* 🚀 Updated Header */}
-        <div className="admin-dashboard-header">
-          <h2>RSVP Admin Dashboard</h2>
-        </div>
-
         <button className="logout-btn" onClick={logout}>
           Logout
         </button>
-
-        {/* 📊 RSVP Statistics */}
+        <div className="admin-dashboard-header">
+          <h2>RSVP Admin Dashboard</h2>
+        </div>
 
         {/* 🏆 Total Guests Title */}
         <h2 className="total-guests-title">Total Guests</h2>
@@ -227,9 +223,9 @@ const AdminDashboard = () => {
                   </td>
                   <td>
                     {guest.family_side === "Axel"
-                      ? "Axel's Side"
+                      ? "Axel"
                       : guest.family_side === "Daphne"
-                        ? "Daphne's Side"
+                        ? "Daphne"
                         : "Unknown"}
                   </td>
                 </tr>
