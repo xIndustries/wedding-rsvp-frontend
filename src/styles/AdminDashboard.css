@@ -162,3 +162,70 @@ button:hover {
     color: white;
     font-weight: bold;
 }
+
+/* 📊 Family-Based Stats Section */
+.family-stats-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+
+/* 🎨 Family Stats Box (Now Smaller & Horizontal) */
+.family-stats-box {
+    background: linear-gradient(145deg, #073642, #002b36);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(38, 139, 210, 0.3);
+    text-align: center;
+    width: 220px; /* ✅ Smaller width */
+    min-width: 200px;
+    transition:
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+}
+
+/* 🏆 Hover Effect */
+.family-stats-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 4px 12px rgba(38, 139, 210, 0.6);
+}
+
+/* 🌟 Family Stats Title */
+.family-stats-box h3 {
+    font-size: 1rem; /* ✅ Smaller Font */
+    color: #b58900; /* Amber */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* 🚀 Family Stats Numbers */
+.family-stats-box p {
+    font-size: 0.9rem; /* ✅ More compact */
+    color: #93a1a1;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+/* 💡 Special Highlight for Numbers */
+.family-stats-box span {
+    font-size: 1.2rem;
+    color: #2aa198; /* Cyan */
+    font-weight: bold;
+}
+
+/* 🏆 Total Guests Title */
+.total-guests-title {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #b58900; /* Amber */
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: "Orbitron", sans-serif !important; /* 🔥 Ensures Orbitron */
+}
