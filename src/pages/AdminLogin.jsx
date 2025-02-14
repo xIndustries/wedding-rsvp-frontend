@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import "../styles/AdminLogin.css"; // ✅ Import the updated styles
 
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({
@@ -33,29 +34,31 @@ const AdminLogin = () => {
 
   return (
     <div className="login-container">
-      <h2>Admin Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={credentials.username}
-          onChange={(e) =>
-            setCredentials({ ...credentials, username: e.target.value })
-          }
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={credentials.password}
-          onChange={(e) =>
-            setCredentials({ ...credentials, password: e.target.value })
-          }
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      {error && <p className="error">{error}</p>}
+      <div className="login-box">
+        <h2>Admin Login</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={credentials.username}
+            onChange={(e) =>
+              setCredentials({ ...credentials, username: e.target.value })
+            }
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={credentials.password}
+            onChange={(e) =>
+              setCredentials({ ...credentials, password: e.target.value })
+            }
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+        {error && <p className="error">{error}</p>}
+      </div>
     </div>
   );
 };

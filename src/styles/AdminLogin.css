@@ -1,0 +1,116 @@
+/* 🎯 Import Orbitron Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+
+/* 🌌 Full-screen login page */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #001f29; /* Deep futuristic blue */
+    font-family: "Orbitron", sans-serif !important; /* Force Orbitron */
+}
+
+/* 🚀 Login Box */
+.login-box {
+    background: rgba(7, 54, 66, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(38, 139, 210, 0.5);
+    text-align: center;
+    width: 350px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    font-family: "Orbitron", sans-serif !important;
+}
+
+/* 🔥 Animated Glowing Border */
+.login-box::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #2aa198, #268bd2, #b58900);
+    z-index: -1;
+    opacity: 0;
+    filter: blur(15px);
+    transition:
+        opacity 0.4s ease-in-out,
+        transform 0.4s ease-in-out;
+}
+
+/* 🎇 Glow effect on focus */
+.login-box:focus-within::before {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* 🔥 Login Title */
+.login-box h2 {
+    font-size: 1.8rem;
+    color: #b58900; /* Amber */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: "Orbitron", sans-serif !important;
+}
+
+/* 🎯 Input Fields */
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    background: rgba(131, 148, 150, 0.2);
+    border-bottom: 2px solid #268bd2;
+    color: #fff;
+    font-size: 1rem;
+    font-family: "Orbitron", sans-serif !important;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* ✨ Animated Glowing Focus Effect */
+.login-box input:focus {
+    border-bottom: 2px solid #2aa198; /* Cyan */
+    box-shadow: 0 0 15px rgba(42, 161, 152, 0.8);
+    background: rgba(7, 54, 66, 0.5);
+    transform: scale(1.05);
+}
+
+/* 🔘 Futuristic Login Button */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #268bd2, #2aa198);
+    color: #001f29;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-family: "Orbitron", sans-serif !important;
+    text-transform: uppercase;
+}
+
+/* 🚀 Button Hover Effect */
+.login-box button:hover {
+    box-shadow: 0 0 15px rgba(38, 139, 210, 0.8);
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #2aa198, #268bd2);
+}
+
+/* ⚠️ Error Message */
+.error {
+    color: #dc322f;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(220, 50, 47, 0.7);
+}
