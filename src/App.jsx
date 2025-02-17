@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import AppRouter from "./router";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 function App() {
   const location = useLocation(); // Get current route
@@ -19,7 +19,7 @@ function App() {
       </div>
 
       {/* Only render Footer if not in admin routes */}
-      {!hideHeaderFooterRoutes.includes(location.pathname) && <Footer />}
+      {/* {!hideHeaderFooterRoutes.includes(location.pathname) && <Footer />} */}
     </div>
   );
 }
