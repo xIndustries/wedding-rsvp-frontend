@@ -7,7 +7,11 @@ function App() {
   const location = useLocation(); // Get current route
 
   // Define routes where the header and footer should be hidden
-  const hideHeaderFooterRoutes = ["/admin", "/admin/dashboard"];
+  const hideHeaderFooterRoutes = [
+    "/admin",
+    "/admin/dashboard",
+    "/admin/invite",
+  ];
 
   return (
     <div className="app-container">

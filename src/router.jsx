@@ -4,6 +4,7 @@ import RSVP from "./pages/RSVP";
 import Confirmation from "./pages/Confirmation";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import InviteGuests from "./pages/InviteGuests"; // ✅ Import InviteGuests page
 import PrivateRoute from "./components/PrivateRoute";
 
 const AppRouter = () => {
@@ -18,6 +19,14 @@ const AppRouter = () => {
         element={
           <PrivateRoute>
             <AdminDashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/admin/invite"
+        element={
+          <PrivateRoute>
+            <InviteGuests />
           </PrivateRoute>
         }
       />

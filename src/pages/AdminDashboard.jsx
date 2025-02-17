@@ -104,6 +104,19 @@ const AdminDashboard = () => {
           <h2>RSVP Admin Dashboard</h2>
         </div>
 
+        {/* 🎉 Button to Navigate to Invite Guests Page */}
+        <div className="invite-button-container">
+          <button
+            className="invite-button"
+            onClick={() => {
+              console.log("Invite button clicked! Navigating...");
+              navigate("/admin/invite");
+            }}
+          >
+            + Invite Guest
+          </button>
+        </div>
+
         {/* 🏆 Total Guests Title */}
         <h2 className="total-guests-title">Total Guests</h2>
 
@@ -125,7 +138,6 @@ const AdminDashboard = () => {
 
         {/* 📊 Axel & Daphne Family Stats */}
         <div className="family-stats-container">
-          {/* Axel's Side */}
           <div className="family-stats-box">
             <h3>Axel Guests</h3>
             <p>
@@ -141,8 +153,6 @@ const AdminDashboard = () => {
               Maybe: <span>{familyStats.axelMaybe}</span>
             </p>
           </div>
-
-          {/* Daphne's Side */}
           <div className="family-stats-box">
             <h3>Daphne Guests</h3>
             <p>
@@ -160,6 +170,7 @@ const AdminDashboard = () => {
           </div>
         </div>
 
+        {/* 📋 Guests Table */}
         <div className="table-container">
           <table className="guest-table">
             <thead>

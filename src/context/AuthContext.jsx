@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true); // ✅ Added loading state
   const navigate = useNavigate();
+  const location = useLocation(); // ✅ Get current route
 
   useEffect(() => {
     const verifyToken = async () => {
@@ -30,7 +31,7 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem("adminToken");
         setIsAuthenticated(false);
       } finally {
-        setLoading(false); // ✅ Set loading to false after validation
+        setLoading(false);
       }
     };
 
@@ -38,10 +39,11 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/admin/dashboard"); // ✅ Redirect only when state updates
+    // ✅ Only redirect if the user is on the login page
+    if (isAuthenticated && location.pathname === "/admin") {
+      navigate("/admin/dashboard");
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, navigate, location]);
 
   const login = (token) => {
     localStorage.setItem("adminToken", token);
