@@ -1,74 +1,159 @@
-.invite-guests-container {
+/* 🎯 Import Orbitron Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+
+/* 🌌 Neo-Solarized Dark Theme */
+.invite-container {
+    background-color: #002b36;
+    color: #839496;
+    font-family: "Orbitron", sans-serif !important;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: #111; /* Neo-Solarized Dark Theme */
-    color: white;
+    padding: 40px 20px;
 }
 
+/* 🚀 Invite Form Box */
 .invite-box {
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    width: 350px;
+    background: rgba(7, 54, 66, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(38, 139, 210, 0.6);
     text-align: center;
+    width: 420px;
+    max-width: 90%;
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
+/* 🔥 Animated Glowing Border */
+.invite-box::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #2aa198, #268bd2, #b58900);
+    z-index: -1;
+    opacity: 0;
+    filter: blur(15px);
+    transition:
+        opacity 0.4s ease-in-out,
+        transform 0.4s ease-in-out;
+}
+
+/* 🎇 Glow effect on hover */
+.invite-box:hover::before {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* 🏆 Title */
 .invite-box h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    color: #f8f8f8;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #b58900;
+    font-family: "Orbitron", sans-serif !important;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
+/* 🎯 Input Fields */
 .invite-box input,
 .invite-box select {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
+    padding: 14px;
+    margin: 10px 0;
     border: none;
-    border-radius: 5px;
-    background: #333;
-    color: white;
-    font-size: 16px;
+    background: rgba(131, 148, 150, 0.2);
+    border-bottom: 3px solid #268bd2;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: "Orbitron", sans-serif !important;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    border-radius: 8px;
 }
 
-.invite-box input::placeholder {
-    color: #bbb;
+/* ✨ Animated Glowing Focus Effect */
+.invite-box input:focus,
+.invite-box select:focus {
+    border-bottom: 3px solid #2aa198; /* Cyan */
+    box-shadow: 0 0 20px rgba(42, 161, 152, 0.8);
+    background: rgba(7, 54, 66, 0.5);
+    transform: scale(1.05);
 }
 
+/* 📩 Select Dropdown Styling */
+.invite-box select {
+    background: rgba(131, 148, 150, 0.2);
+    color: #eee8d5;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* 🔘 Futuristic Submit Button */
 .invite-box button {
     width: 100%;
-    padding: 10px;
-    margin-top: 15px;
+    padding: 14px;
+    background: linear-gradient(90deg, #268bd2, #2aa198);
+    color: #001f29;
     border: none;
-    border-radius: 5px;
-    background: #28a745;
-    color: white;
-    font-size: 16px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out;
+    font-family: "Orbitron", sans-serif !important;
+    text-transform: uppercase;
+    margin-top: 15px;
 }
 
+/* 🚀 Button Hover Effect */
 .invite-box button:hover {
-    background: #218838;
+    box-shadow: 0 0 15px rgba(38, 139, 210, 0.8);
+    transform: scale(1.08);
+    background: linear-gradient(90deg, #2aa198, #268bd2);
 }
 
-.invite-success {
-    margin-top: 10px;
-    color: #f8f8f8;
-    font-size: 14px;
+/* ⚠️ Message Box */
+.invite-message {
+    font-size: 1rem;
+    margin-top: 12px;
     padding: 10px;
-    background: #444;
-    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
 }
 
+/* ✅ Success Message */
+.invite-message.success {
+    background: rgba(42, 161, 152, 0.2);
+    color: #2aa198;
+    box-shadow: 0 0 12px rgba(42, 161, 152, 0.5);
+}
+
+/* ❌ Error Message */
+.invite-message.error {
+    background: rgba(220, 50, 47, 0.2);
+    color: #dc322f;
+    box-shadow: 0 0 12px rgba(220, 50, 47, 0.5);
+}
+
+/* 🔙 Back Button */
 .back-button {
-    background: #d9534f;
-    margin-top: 10px;
-}
-
-.back-button:hover {
-    background: #c9302c;
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #b58900, #dc322f);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }

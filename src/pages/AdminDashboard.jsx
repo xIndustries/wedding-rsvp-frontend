@@ -97,15 +97,12 @@ const AdminDashboard = () => {
   return (
     <div className="admin-dashboard-theme">
       <div className="admin-container">
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
-        <div className="admin-dashboard-header">
-          <h2>RSVP Admin Dashboard</h2>
-        </div>
+        {/* 🔘 Buttons Container for Logout & Invite */}
+        <div className="admin-buttons-container">
+          <button className="logout-btn" onClick={logout}>
+            Logout
+          </button>
 
-        {/* 🎉 Button to Navigate to Invite Guests Page */}
-        <div className="invite-button-container">
           <button
             className="invite-button"
             onClick={() => {
@@ -115,6 +112,10 @@ const AdminDashboard = () => {
           >
             + Invite Guest
           </button>
+        </div>
+
+        <div className="admin-dashboard-header">
+          <h2>RSVP Admin Dashboard</h2>
         </div>
 
         {/* 🏆 Total Guests Title */}

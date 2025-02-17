@@ -24,12 +24,55 @@
     text-align: center;
 }
 
+/* 🚀 Buttons Container (Keeps Logout & Invite Stacked) */
+.admin-buttons-container {
+    display: flex;
+    flex-direction: column; /* 👈 Stack the buttons vertically */
+    align-items: flex-end; /* 👈 Align to the right */
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    gap: 15px; /* ✅ Adds spacing between buttons */
+    z-index: 1000;
+}
+
+/* 🔘 Logout Button */
+.logout-btn {
+    background: linear-gradient(45deg, #dc322f, #b58900);
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* 🎉 Invite Button (Now Below Logout) */
+.invite-button {
+    background: linear-gradient(90deg, #268bd2, #2aa198);
+    color: #002b36;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* 🏎 Hover Effects */
+.logout-btn:hover,
+.invite-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(38, 139, 210, 0.6);
+}
+
 /* 🚀 Admin Dashboard Header */
 .admin-dashboard-header {
     background: linear-gradient(90deg, #073642, #586e75);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(88, 110, 117, 0.5);
+    text-align: center;
 }
 
 /* 🏆 Title */
@@ -39,6 +82,18 @@
     letter-spacing: 2px;
     color: #b58900; /* Amber Yellow */
     font-family: "Orbitron", sans-serif !important;
+}
+
+/* 🏆 Total Guests Title */
+.total-guests-title {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #b58900; /* Amber */
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: "Orbitron", sans-serif !important; /* 🔥 Ensures Orbitron */
 }
 
 /* 📊 RSVP Stats */
@@ -74,6 +129,61 @@
     font-size: 1rem;
     text-transform: uppercase;
     color: #93a1a1;
+}
+
+/* 📊 Family-Based Stats Section */
+.family-stats-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+
+/* 🎨 Family Stats Box */
+.family-stats-box {
+    background: linear-gradient(145deg, #073642, #002b36);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(38, 139, 210, 0.3);
+    text-align: center;
+    width: 340px;
+    min-width: 200px;
+    transition:
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+}
+
+/* 🏆 Hover Effect */
+.family-stats-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 4px 12px rgba(38, 139, 210, 0.6);
+}
+
+/* 🌟 Family Stats Title */
+.family-stats-box h3 {
+    font-size: 1.2rem;
+    color: #b58900; /* Amber */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* 🚀 Family Stats Numbers */
+.family-stats-box p {
+    font-size: 0.9rem;
+    color: #93a1a1;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+/* 💡 Special Highlight for Numbers */
+.family-stats-box span {
+    font-size: 1.2rem;
+    color: #2aa198; /* Cyan */
+    font-weight: bold;
 }
 
 /* 🖥 Table Container */
@@ -136,131 +246,4 @@
 
 .maybe {
     color: #b58900;
-}
-
-/* 🔘 Buttons */
-button {
-    background: linear-gradient(90deg, #268bd2, #2aa198);
-    color: #002b36;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    box-shadow: 0 0 10px rgba(38, 139, 210, 0.6);
-    transform: scale(1.05);
-}
-
-/* 🏎 Logout Button */
-.logout-btn {
-    margin-top: 20px;
-    background: linear-gradient(45deg, #dc322f, #b58900);
-    color: white;
-    font-weight: bold;
-}
-
-/* 📊 Family-Based Stats Section */
-.family-stats-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 90%;
-    max-width: 1000px;
-    margin: 30px auto;
-    flex-wrap: wrap;
-}
-
-/* 🎨 Family Stats Box (Now Smaller & Horizontal) */
-.family-stats-box {
-    background: linear-gradient(145deg, #073642, #002b36);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 3px 8px rgba(38, 139, 210, 0.3);
-    text-align: center;
-    width: 340px; /* ✅ Smaller width */
-    min-width: 200px;
-    transition:
-        transform 0.2s ease-in-out,
-        box-shadow 0.2s ease-in-out;
-}
-
-/* 🏆 Hover Effect */
-.family-stats-box:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 4px 12px rgba(38, 139, 210, 0.6);
-}
-
-/* 🌟 Family Stats Title */
-.family-stats-box h3 {
-    font-size: 1.2rem; /* ✅ Smaller Font */
-    color: #b58900; /* Amber */
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-/* 🚀 Family Stats Numbers */
-.family-stats-box p {
-    font-size: 0.9rem; /* ✅ More compact */
-    color: #93a1a1;
-    margin: 5px 0;
-    font-weight: 600;
-}
-
-/* 💡 Special Highlight for Numbers */
-.family-stats-box span {
-    font-size: 1.2rem;
-    color: #2aa198; /* Cyan */
-    font-weight: bold;
-}
-
-/* 🏆 Total Guests Title */
-.total-guests-title {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #b58900; /* Amber */
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-family: "Orbitron", sans-serif !important; /* 🔥 Ensures Orbitron */
-}
-
-/* 🚀 Admin Dashboard Header */
-.admin-dashboard-header {
-    background: linear-gradient(90deg, #073642, #586e75);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(88, 110, 117, 0.5);
-    display: flex;
-    justify-content: center; /* 🔥 Title on left, button on right */
-    align-items: center;
-    position: relative;
-}
-
-/* 🔘 Logout Button - Fixed Top Right */
-.logout-btn {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    padding: 12px 20px;
-    background: linear-gradient(45deg, #dc322f, #b58900);
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
-    z-index: 1000; /* Ensure it's above everything */
-}
-
-/* 🚀 Hover effect */
-.logout-btn:hover {
-    box-shadow: 0 0 15px rgba(220, 50, 47, 0.7);
-    transform: scale(1.1);
 }
