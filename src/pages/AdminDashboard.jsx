@@ -110,7 +110,7 @@ const AdminDashboard = () => {
               navigate("/admin/invite");
             }}
           >
-            + Invite Guest
+            Invite
           </button>
         </div>
 
