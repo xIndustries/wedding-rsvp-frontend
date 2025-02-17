@@ -94,39 +94,6 @@ const AdminDashboard = () => {
     });
   };
 
-  // ✅ Function to update RSVP status
-  const handleRSVPChange = async (guestId, newRSVP) => {
-    try {
-      const token = localStorage.getItem("adminToken");
-      await axios.put(
-        "http://localhost:8080/api/admin/update-rsvp",
-        { guest_id: guestId, rsvp: newRSVP },
-        { headers: { Authorization: token } },
-      );
-
-      // ✅ Update the local state immediately
-      setGuests((prevGuests) =>
-        prevGuests.map((guest) =>
-          guest.id === guestId ? { ...guest, rsvp: newRSVP } : guest,
-        ),
-      );
-
-      // ✅ Recalculate Stats
-      calculateStats(
-        guests.map((guest) =>
-          guest.id === guestId ? { ...guest, rsvp: newRSVP } : guest,
-        ),
-      );
-      calculateFamilyStats(
-        guests.map((guest) =>
-          guest.id === guestId ? { ...guest, rsvp: newRSVP } : guest,
-        ),
-      );
-    } catch (err) {
-      console.error("Failed to update RSVP:", err);
-    }
-  };
-
   return (
     <div className="admin-dashboard-theme">
       <div className="admin-container">
@@ -156,7 +123,7 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* 📊 Axel & Daphne Family Stats - NEW STYLISH CARDS */}
+        {/* 📊 Axel & Daphne Family Stats */}
         <div className="family-stats-container">
           {/* Axel's Side */}
           <div className="family-stats-box">
@@ -200,7 +167,7 @@ const AdminDashboard = () => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>RSVP</th>
-                <th>Family Side</th> {/* ✅ NEW COLUMN */}
+                <th>Family Side</th>
               </tr>
             </thead>
             <tbody>
@@ -209,17 +176,9 @@ const AdminDashboard = () => {
                   <td>{guest.name}</td>
                   <td>{guest.email}</td>
                   <td>
-                    <select
-                      value={guest.rsvp || "No Response"}
-                      onChange={(e) =>
-                        handleRSVPChange(guest.id, e.target.value)
-                      }
-                    >
-                      <option value="No Response">No Response</option>
-                      <option value="Attending">Attending</option>
-                      <option value="Not Attending">Not Attending</option>
-                      <option value="Maybe">Maybe</option>
-                    </select>
+                    {guest.rsvp && guest.rsvp !== ""
+                      ? guest.rsvp
+                      : "No Response"}
                   </td>
                   <td>
                     {guest.family_side === "Axel"
