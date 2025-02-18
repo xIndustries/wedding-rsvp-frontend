@@ -131,10 +131,10 @@ const AdminDashboard = () => {
             <div className="stat-number">{rsvpStats.notAttending}</div>
             <div className="stat-title">Not Attending</div>
           </div>
-          <div className="stat-box">
+          {/* <div className="stat-box">
             <div className="stat-number">{rsvpStats.maybe}</div>
             <div className="stat-title">Maybe</div>
-          </div>
+          </div> */}
         </div>
 
         {/* 📊 Axel & Daphne Family Stats */}

@@ -37,7 +37,7 @@ const RSVP = () => {
       <h2>Hello {guest.name}, Please RSVP</h2>
       <button onClick={() => handleRSVP("Attending")}>Attending</button>
       <button onClick={() => handleRSVP("Not Attending")}>Not Attending</button>
-      <button onClick={() => handleRSVP("Maybe")}>Maybe</button>
+      {/* <button onClick={() => handleRSVP("Maybe")}>Maybe</button> */}
     </div>
   );
 };
