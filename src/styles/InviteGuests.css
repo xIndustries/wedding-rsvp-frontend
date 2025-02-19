@@ -157,3 +157,51 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
+
+/* 🎯 Guest Count Section */
+.guest-count {
+    margin: 15px 0;
+    text-align: left;
+}
+
+/* 🚀 Radio Button Group */
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* 🔘 Individual Radio Option */
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #b58900;
+    padding-right: 10px;
+}
+
+/* 🎨 Custom Styling for Radio */
+.radio-option input[type="radio"] {
+    appearance: none;
+    width: 12px;
+    height: 18px;
+    border: 2px solid #268bd2;
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+/* ✅ Selected Radio Button */
+.radio-option input[type="radio"]:checked {
+    background: #2aa198;
+    box-shadow: 0 0 5px rgba(42, 161, 152, 0.8);
+}
+
+/* 🏎 Hover Effect */
+.radio-option:hover input[type="radio"] {
+    transform: scale(1.1);
+}

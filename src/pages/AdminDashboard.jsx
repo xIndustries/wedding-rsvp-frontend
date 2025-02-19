@@ -9,18 +9,15 @@ const AdminDashboard = () => {
   const [rsvpStats, setRSVPStats] = useState({
     attending: 0,
     notAttending: 0,
-    maybe: 0,
   });
 
   const [familyStats, setFamilyStats] = useState({
     axelTotal: 0,
     axelAttending: 0,
     axelNotAttending: 0,
-    axelMaybe: 0,
     daphneTotal: 0,
     daphneAttending: 0,
     daphneNotAttending: 0,
-    daphneMaybe: 0,
   });
 
   const { logout } = useContext(AuthContext);
@@ -50,47 +47,47 @@ const AdminDashboard = () => {
 
   // ✅ Calculate RSVP Stats
   const calculateStats = (guests) => {
-    const attending = guests.filter((g) => g.rsvp === "Attending").length;
-    const notAttending = guests.filter(
-      (g) => g.rsvp === "Not Attending",
-    ).length;
-    const maybe = guests.filter((g) => g.rsvp === "Maybe").length;
-    setRSVPStats({ attending, notAttending, maybe });
+    const attending = guests.reduce(
+      (sum, g) => (g.rsvp === "Attending" ? sum + g.num_guests : sum),
+      0,
+    );
+    const notAttending = guests.reduce(
+      (sum, g) => (g.rsvp === "Not Attending" ? sum + g.num_guests : sum),
+      0,
+    );
+
+    setRSVPStats({ attending, notAttending });
   };
 
   // ✅ Calculate Axel & Daphne's Stats
   const calculateFamilyStats = (guests) => {
-    const axelTotal = guests.filter((g) => g.family_side === "Axel").length;
-    const axelAttending = guests.filter(
-      (g) => g.family_side === "Axel" && g.rsvp === "Attending",
-    ).length;
-    const axelNotAttending = guests.filter(
-      (g) => g.family_side === "Axel" && g.rsvp === "Not Attending",
-    ).length;
-    const axelMaybe = guests.filter(
-      (g) => g.family_side === "Axel" && g.rsvp === "Maybe",
-    ).length;
+    const axelTotal = guests
+      .filter((g) => g.family_side === "Axel")
+      .reduce((sum, g) => sum + g.num_guests, 0);
+    const axelAttending = guests
+      .filter((g) => g.family_side === "Axel" && g.rsvp === "Attending")
+      .reduce((sum, g) => sum + g.num_guests, 0);
+    const axelNotAttending = guests
+      .filter((g) => g.family_side === "Axel" && g.rsvp === "Not Attending")
+      .reduce((sum, g) => sum + g.num_guests, 0);
 
-    const daphneTotal = guests.filter((g) => g.family_side === "Daphne").length;
-    const daphneAttending = guests.filter(
-      (g) => g.family_side === "Daphne" && g.rsvp === "Attending",
-    ).length;
-    const daphneNotAttending = guests.filter(
-      (g) => g.family_side === "Daphne" && g.rsvp === "Not Attending",
-    ).length;
-    const daphneMaybe = guests.filter(
-      (g) => g.family_side === "Daphne" && g.rsvp === "Maybe",
-    ).length;
+    const daphneTotal = guests
+      .filter((g) => g.family_side === "Daphne")
+      .reduce((sum, g) => sum + g.num_guests, 0);
+    const daphneAttending = guests
+      .filter((g) => g.family_side === "Daphne" && g.rsvp === "Attending")
+      .reduce((sum, g) => sum + g.num_guests, 0);
+    const daphneNotAttending = guests
+      .filter((g) => g.family_side === "Daphne" && g.rsvp === "Not Attending")
+      .reduce((sum, g) => sum + g.num_guests, 0);
 
     setFamilyStats({
       axelTotal,
       axelAttending,
       axelNotAttending,
-      axelMaybe,
       daphneTotal,
       daphneAttending,
       daphneNotAttending,
-      daphneMaybe,
     });
   };
 
@@ -131,10 +128,6 @@ const AdminDashboard = () => {
             <div className="stat-number">{rsvpStats.notAttending}</div>
             <div className="stat-title">Not Attending</div>
           </div>
-          {/* <div className="stat-box">
-            <div className="stat-number">{rsvpStats.maybe}</div>
-            <div className="stat-title">Maybe</div>
-          </div> */}
         </div>
 
         {/* 📊 Axel & Daphne Family Stats */}
@@ -150,9 +143,6 @@ const AdminDashboard = () => {
             <p>
               Not Attending: <span>{familyStats.axelNotAttending}</span>
             </p>
-            <p>
-              Maybe: <span>{familyStats.axelMaybe}</span>
-            </p>
           </div>
           <div className="family-stats-box">
             <h3>Daphne Guests</h3>
@@ -164,9 +154,6 @@ const AdminDashboard = () => {
             </p>
             <p>
               Not Attending: <span>{familyStats.daphneNotAttending}</span>
-            </p>
-            <p>
-              Maybe: <span>{familyStats.daphneMaybe}</span>
             </p>
           </div>
         </div>
@@ -180,6 +167,7 @@ const AdminDashboard = () => {
                 <th>Email</th>
                 <th>RSVP</th>
                 <th>Family Side</th>
+                <th>Total Guests</th> {/* ✅ New Column */}
               </tr>
             </thead>
             <tbody>
@@ -199,6 +187,7 @@ const AdminDashboard = () => {
                         ? "Daphne"
                         : "Unknown"}
                   </td>
+                  <td>{guest.num_guests}</td> {/* ✅ Display `num_guests` */}
                 </tr>
               ))}
             </tbody>
