@@ -1,0 +1,114 @@
+/* 🎯 Import Orbitron Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+
+/* 🌌 Neo-Solarized Dark Theme */
+.rsvp-container {
+    background-color: #002b36;
+    color: #839496;
+    font-family: "Orbitron", sans-serif !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* 🚀 RSVP Box */
+.rsvp-box {
+    background: rgba(7, 54, 66, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(38, 139, 210, 0.6);
+    text-align: center;
+    width: 420px;
+    max-width: 90%;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🎇 Glow effect */
+.rsvp-box:hover {
+    box-shadow: 0 0 30px rgba(38, 139, 210, 0.8);
+}
+
+/* 🏆 Title */
+.rsvp-box h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #b58900;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 👋 Guest Welcome Message */
+.rsvp-welcome {
+    font-size: 1.4rem;
+    color: #2aa198;
+    margin-bottom: 10px;
+}
+
+/* 🎟 Total Guest Count */
+.guest-count {
+    font-size: 1.2rem;
+    color: #839496;
+    margin-bottom: 20px;
+}
+
+/* ✨ RSVP Text */
+.rsvp-text {
+    font-size: 1.1rem;
+    color: #eee8d5;
+    margin-bottom: 25px;
+}
+
+/* 🎯 RSVP Buttons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rsvp-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    border: none;
+}
+
+.attending {
+    background: linear-gradient(90deg, #2aa198, #268bd2);
+    color: white;
+}
+
+.attending:hover {
+    box-shadow: 0 0 15px rgba(42, 161, 152, 0.8);
+    transform: scale(1.05);
+}
+
+.not-attending {
+    background: linear-gradient(90deg, #dc322f, #cb4b16);
+    color: white;
+}
+
+.not-attending:hover {
+    box-shadow: 0 0 15px rgba(220, 50, 47, 0.8);
+    transform: scale(1.05);
+}
+
+/* 📡 Loading & Error */
+.loading {
+    font-size: 1.2rem;
+    color: #b58900;
+}
+
+.error {
+    font-size: 1.2rem;
+    color: #dc322f;
+    font-weight: bold;
+    margin-top: 15px;
+}
