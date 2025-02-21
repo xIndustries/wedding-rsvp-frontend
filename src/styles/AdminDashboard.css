@@ -5,70 +5,69 @@
 .admin-dashboard-theme {
     background-color: #002b36; /* Neo-Solarized Dark Base */
     color: #839496; /* Soft Text Color */
-    font-family: "Orbitron", sans-serif !important; /* Forces Orbitron */
+    font-family: "Orbitron", sans-serif !important;
     min-height: 100vh;
     display: flex;
-    justify-content: center; /* Centers Horizontally */
-    align-items: center; /* Centers Vertically */
+    justify-content: center;
+    align-items: center;
     padding: 20px;
 }
 
-/* 🚀 Admin Container - Ensures Centering */
+/* 🚀 Admin Container */
 .admin-container {
     width: 90%;
     max-width: 900px;
-    background: rgba(7, 54, 66, 0.9); /* Dark Glass Effect */
+    background: #073642; /* Solid Dark Background */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(88, 110, 117, 0.5);
     text-align: center;
 }
 
-/* 🚀 Buttons Container (Keeps Logout & Invite Stacked) */
+/* 🚀 Buttons Container */
 .admin-buttons-container {
     display: flex;
-    flex-direction: column; /* 👈 Stack the buttons vertically */
-    align-items: flex-end; /* 👈 Align to the right */
+    flex-direction: column;
+    align-items: flex-end;
     position: fixed;
     top: 20px;
     right: 30px;
-    gap: 15px; /* ✅ Adds spacing between buttons */
+    gap: 15px;
     z-index: 1000;
 }
 
-/* 🔘 Logout Button */
-.logout-btn {
-    background: linear-gradient(45deg, #dc322f, #b58900);
-    color: white;
+/* 🔘 Standardized Button Styling */
+.logout-btn,
+.invite-button {
+    background-color: #073642 !important; /* Fixes inconsistent color */
+    color: #ffffff !important; /* Ensures text remains readable */
+    padding: 12px 24px;
+    font-size: 1rem;
     font-weight: bold;
-    padding: 12px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s;
-}
-
-/* 🎉 Invite Button (Now Below Logout) */
-.invite-button {
-    background: linear-gradient(90deg, #268bd2, #2aa198);
-    color: #002b36;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out;
+    width: 180px; /* ✅ Set fixed width */
+    height: 50px; /* ✅ Set fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* 🏎 Hover Effects */
 .logout-btn:hover,
 .invite-button:hover {
+    background-color: #2aa198 !important; /* ✅ Cyan hover effect */
+    color: #073642 !important; /* ✅ Dark text for contrast */
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(38, 139, 210, 0.6);
 }
 
 /* 🚀 Admin Dashboard Header */
 .admin-dashboard-header {
-    background: linear-gradient(90deg, #073642, #586e75);
+    background: #073642;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(88, 110, 117, 0.5);
@@ -80,7 +79,7 @@
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #58c2c5; /* Amber Yellow */
+    color: #58c2c5;
     font-family: "Orbitron", sans-serif !important;
 }
 
@@ -90,10 +89,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
-    color: #58c2c5; /* Amber */
+    color: #58c2c5;
     margin-bottom: 15px;
     font-weight: bold;
-    font-family: "Orbitron", sans-serif !important; /* 🔥 Ensures Orbitron */
+    font-family: "Orbitron", sans-serif !important;
 }
 
 /* 📊 RSVP Stats */
@@ -108,7 +107,7 @@
 
 /* 📊 Stat Box */
 .stat-box {
-    background: rgba(7, 54, 66, 0.9);
+    background: #002b36;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(131, 148, 150, 0.3);
@@ -121,7 +120,7 @@
 .stat-number {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #2aa198; /* Futuristic Cyan */
+    color: #2aa198;
 }
 
 /* 📊 Titles */
@@ -145,7 +144,7 @@
 
 /* 🎨 Family Stats Box */
 .family-stats-box {
-    background: linear-gradient(145deg, #073642, #002b36);
+    background: #002b36;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 3px 8px rgba(38, 139, 210, 0.3);
@@ -166,7 +165,7 @@
 /* 🌟 Family Stats Title */
 .family-stats-box h3 {
     font-size: 1.2rem;
-    color: #b58900; /* Amber */
+    color: #b58900;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -182,7 +181,7 @@
 /* 💡 Special Highlight for Numbers */
 .family-stats-box span {
     font-size: 1.2rem;
-    color: #2aa198; /* Cyan */
+    color: #2aa198;
     font-weight: bold;
 }
 
@@ -242,8 +241,4 @@
 
 .not-attending {
     color: #dc322f;
-}
-
-.maybe {
-    color: #b58900;
 }

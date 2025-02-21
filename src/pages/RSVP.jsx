@@ -37,52 +37,51 @@ const RSVP = () => {
     }
   };
 
-  if (loading) return <p className="loading">🔄 Loading...</p>;
-
-  if (error)
-    return (
-      <div className="error-container">
-        <h2 className="error-title">⚠️ Access Denied</h2>
-        <p className="error-message">{error}</p>
-        <button className="retry-button" onClick={() => navigate("/")}>
-          🔄 Try Again
-        </button>
-        <button className="home-button" onClick={() => navigate("/")}>
-          🏠 Back to Home
-        </button>
-      </div>
-    );
-
   return (
     <div className="rsvp-container">
       <div className="rsvp-box">
-        <h2>You are Invited! 🎉</h2>
-        <p className="rsvp-welcome">
-          Welcome, <strong>{guest.name}</strong>!
-        </p>
-        <p className="guest-count">
-          <strong>Total Number of Guests:</strong> {guest.num_guests}
-        </p>
+        {loading ? (
+          <p className="loading">🔄 Loading...</p>
+        ) : error ? (
+          <div className="error-container">
+            <h2 className="error-title">⚠️ Access Denied</h2>
+            <p className="error-message">{error}</p>
+            <button className="retry-button" onClick={() => navigate("/")}>
+              🔄 Try Again
+            </button>
+            <button className="home-button" onClick={() => navigate("/")}>
+              🏠 Back to Home
+            </button>
+          </div>
+        ) : (
+          <>
+            <h2 className="rsvp-title">
+              🚀 Welcome, <span>{guest.name}</span>!
+            </h2>
+            <p className="rsvp-text">
+              Your wallet has been whitelisted. Mint your RSVP below:
+            </p>
 
-        <p className="rsvp-text">
-          Axel & Daphne cannot wait to celebrate with you! Kindly confirm your
-          attendance below.
-        </p>
+            <p className="guest-count">
+              <strong>🎟 Total Guests:</strong> {guest.num_guests}
+            </p>
 
-        <div className="button-group">
-          <button
-            className="rsvp-btn attending"
-            onClick={() => handleRSVP("Attending")}
-          >
-            ✅ Attending
-          </button>
-          <button
-            className="rsvp-btn not-attending"
-            onClick={() => handleRSVP("Not Attending")}
-          >
-            ❌ Not Attending
-          </button>
-        </div>
+            <div className="button-group">
+              <button
+                className="rsvp-btn attending"
+                onClick={() => handleRSVP("Attending")}
+              >
+                ✅ Attending
+              </button>
+              <button
+                className="rsvp-btn not-attending"
+                onClick={() => handleRSVP("Not Attending")}
+              >
+                ❌ Not Attending
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

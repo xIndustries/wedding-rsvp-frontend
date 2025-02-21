@@ -63,7 +63,7 @@ const Home = () => {
 
         {/* 🎟 RSVP Token Entry */}
         <p className="rsvp-text">
-          🎟 Only whitelisted wallets can mint their RSVP.
+          🎟 Only whitelisted invitees can mint their RSVP.
         </p>
         <p className="rsvp-text">Enter your invitation token below:</p>
 
