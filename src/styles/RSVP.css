@@ -1,64 +1,66 @@
-/* 🎯 Import Orbitron Font */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+/* 🎨 Import Playfair Display & Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
 
-/* 🌌 Neo-Solarized Dark Theme */
+/* 🌸 Elegant RSVP Page Styling */
 .rsvp-container {
-    background-color: #002b36;
-    color: #839496;
-    font-family: "Orbitron", sans-serif !important;
+    background: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    font-family: "Poppins", sans-serif;
+    padding: 40px;
 }
 
-/* 🚀 RSVP Box */
-.rsvp-box {
-    background: rgba(7, 54, 66, 0.95);
+/* 🎭 RSVP Card (Glassmorphism) */
+.rsvp-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 0 25px rgba(38, 139, 210, 0.6);
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 420px;
-    max-width: 90%;
-    position: relative;
-    transition: all 0.3s ease-in-out;
+    max-width: 500px;
+    width: 90%;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* 🎇 Glow effect */
-.rsvp-box:hover {
-    box-shadow: 0 0 30px rgba(38, 139, 210, 0.8);
-}
-
-/* 🏆 Title */
-.rsvp-box h2 {
+/* 🏆 RSVP Title */
+.rsvp-title {
     font-size: 2rem;
-    text-transform: uppercase;
-    color: #b58900;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-/* 👋 Guest Welcome Message */
-.rsvp-welcome {
-    font-size: 1.4rem;
-    color: #2aa198;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: #b17a2d;
     margin-bottom: 10px;
 }
 
-/* 🎟 Total Guest Count */
+/* 💌 Guest Name */
+.rsvp-guest {
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+    color: #3d3d3d;
+    font-weight: bold;
+}
+
+.rsvp-guest span {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.8rem;
+    color: #b17a2d;
+}
+
+/* 🎟 Guest Count */
 .guest-count {
     font-size: 1.2rem;
-    color: #839496;
+    color: #555;
     margin-bottom: 20px;
 }
 
 /* ✨ RSVP Text */
 .rsvp-text {
-    font-size: 1.1rem;
-    color: #eee8d5;
+    font-size: 1rem;
+    color: #666;
     margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 /* 🎯 RSVP Buttons */
@@ -68,6 +70,7 @@
     gap: 12px;
 }
 
+/* ✅ Attending Button */
 .rsvp-btn {
     width: 100%;
     padding: 14px;
@@ -76,39 +79,99 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    text-transform: uppercase;
     border: none;
+    text-transform: uppercase;
 }
 
+/* 🎉 Attending Button */
 .attending {
-    background: linear-gradient(90deg, #2aa198, #268bd2);
+    background: linear-gradient(90deg, #b17a2d, #ffcc80);
     color: white;
 }
 
 .attending:hover {
-    box-shadow: 0 0 15px rgba(42, 161, 152, 0.8);
+    box-shadow: 0px 4px 12px rgba(255, 204, 128, 0.7);
     transform: scale(1.05);
 }
 
+/* 💔 Not Attending Button */
 .not-attending {
-    background: linear-gradient(90deg, #dc322f, #cb4b16);
+    background: linear-gradient(90deg, #e53935, #d32f2f);
     color: white;
 }
 
 .not-attending:hover {
-    box-shadow: 0 0 15px rgba(220, 50, 47, 0.8);
+    box-shadow: 0px 4px 12px rgba(211, 47, 47, 0.7);
     transform: scale(1.05);
 }
 
 /* 📡 Loading & Error */
 .loading {
     font-size: 1.2rem;
-    color: #b58900;
+    color: #b17a2d;
 }
 
 .error {
     font-size: 1.2rem;
-    color: #dc322f;
+    color: #e53935;
     font-weight: bold;
     margin-top: 15px;
+}
+
+/* 🔴 Error Message Container */
+.error-container {
+    background-color: #ffebee;
+    color: #d32f2f;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0px 5px 10px rgba(211, 47, 47, 0.2);
+}
+
+/* ❌ Error Title */
+.error-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* 🚨 Error Message */
+.error-message {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+/* 🔁 Retry & Home Buttons */
+.retry-button,
+.home-button {
+    display: block;
+    width: 80%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    margin: 10px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.retry-button {
+    background-color: #ff5252;
+    color: white;
+}
+
+.retry-button:hover {
+    background-color: #e53935;
+}
+
+.home-button {
+    background-color: #1976d2;
+    color: white;
+}
+
+.home-button:hover {
+    background-color: #1565c0;
 }

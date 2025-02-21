@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getGuestDetails, submitRSVP } from "../api";
-import "../styles/RSVP.css"; // Ensure this CSS file exists for styling
+import "../styles/RSVP.css"; // Ensure styling is updated
 
 const RSVP = () => {
   const { token } = useParams();
@@ -12,11 +12,16 @@ const RSVP = () => {
 
   useEffect(() => {
     const fetchGuest = async () => {
-      const data = await getGuestDetails(token);
-      if (!data) {
-        setError("Guest not found or invalid token.");
-      } else {
+      try {
+        const data = await getGuestDetails(token);
+        if (!data) {
+          throw new Error("Invalid or unauthorized token.");
+        }
         setGuest(data);
+      } catch (err) {
+        setError(
+          "❌ Invalid or unauthorized token. Please check and try again.",
+        );
       }
       setLoading(false);
     };
@@ -28,12 +33,25 @@ const RSVP = () => {
     if (response) {
       navigate("/confirmation");
     } else {
-      setError("Failed to submit RSVP. Please try again.");
+      setError("❌ Failed to submit RSVP. Please try again.");
     }
   };
 
-  if (loading) return <p className="loading">Loading...</p>;
-  if (error) return <p className="error">{error}</p>;
+  if (loading) return <p className="loading">🔄 Loading...</p>;
+
+  if (error)
+    return (
+      <div className="error-container">
+        <h2 className="error-title">⚠️ Access Denied</h2>
+        <p className="error-message">{error}</p>
+        <button className="retry-button" onClick={() => navigate("/")}>
+          🔄 Try Again
+        </button>
+        <button className="home-button" onClick={() => navigate("/")}>
+          🏠 Back to Home
+        </button>
+      </div>
+    );
 
   return (
     <div className="rsvp-container">

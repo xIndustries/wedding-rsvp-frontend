@@ -1,0 +1,145 @@
+/* 🌌 Web3-Inspired Theme */
+.home-container {
+    background-color: #1a1d2b;
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 🏆 Content Box */
+.home-content {
+    /* max-width: 600px; */
+    width: 800px;
+    padding: 40px;
+    background: rgba(26, 29, 43, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(70, 79, 241, 0.8);
+}
+
+/* 💍 Wedding Title */
+.wedding-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #d64df3;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 🏦 Web3 Subtitle */
+.wedding-subtitle {
+    font-size: 1.5rem;
+    color: #46d2c7;
+    margin-bottom: 20px;
+}
+
+/* ⏳ Countdown Timer */
+.countdown-text {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.countdown-timer {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #46d2c7;
+    margin-bottom: 25px;
+}
+
+/* 🎟 RSVP Token Input */
+.rsvp-text {
+    font-size: 1.1rem;
+    color: #bfbfbf;
+    margin-bottom: 15px;
+}
+
+/* 🔑 Token Input Form */
+.token-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.token-input {
+    width: 450px;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 2px solid #464ff1;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.token-input:focus {
+    border-color: #46d2c7;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(70, 79, 241, 0.5);
+}
+
+/* 🎯 Submit Button */
+.submit-button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #464ff1;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #d64df3;
+    transform: scale(1.05);
+}
+
+/* 🛑 Error Message */
+.error-message {
+    color: #d64df3;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 🔥 Fade-out Animation */
+.fade-out {
+    opacity: 0;
+}
+
+/* ✨ Input Error Styling */
+.input-error {
+    border: 2px solid #d64df3;
+    box-shadow: 0 0 10px rgba(214, 77, 243, 0.5);
+    animation: shake 0.3s ease-in-out;
+}
+
+/* ✨ Shake Animation for Invalid Input */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

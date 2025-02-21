@@ -89,7 +89,7 @@ const InviteGuests = () => {
 
           {/* 🎯 Number of Guests (Radio Buttons) */}
           <div className="guest-count">
-            <label>Number of Guests:</label>
+            <label>Total number of Guests:</label>
             <div className="radio-group">
               {[1, 2, 3, 4, 5].map((num) => (
                 <label key={num} className="radio-option">
