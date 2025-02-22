@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getGuestDetails, submitRSVP } from "../api";
 import "../styles/RSVP.css";
-import invitationImage from "../assets/wedding.jpg";
+import invitationImage from "../assets/wedding.jpg"; // Default invite image
+import attendRsvpImage from "../assets/attend_rsvp.jpg"; // Attending image
+import notAttendingRsvpImage from "../assets/not_attending_rsvp.jpg"; // Not Attending image
 
 const RSVP = () => {
   const { token } = useParams();
@@ -32,7 +34,14 @@ const RSVP = () => {
   const handleRSVP = async (status) => {
     const response = await submitRSVP(token, status);
     if (response) {
-      navigate("/confirmation");
+      // Navigate to Confirmation with correct image
+      navigate("/confirmation", {
+        state: {
+          rsvpStatus: status,
+          rsvpImage:
+            status === "Attending" ? attendRsvpImage : notAttendingRsvpImage,
+        },
+      });
     } else {
       setError("❌ Failed to submit RSVP. Please try again.");
     }
@@ -57,15 +66,14 @@ const RSVP = () => {
         ) : (
           <>
             <h2 className="rsvp-title">
-              <span>Welcome,</span> <span>{guest.name}!</span>
+              Welcome, <span>{guest.name}</span>!
             </h2>
-
-            <p className="rsvp-subtitle">
+            <p className="rsvp-text">
               Your invitation is confirmed. Please RSVP below:
             </p>
 
             <p className="guest-count">
-              <strong> Total Guests:</strong> {guest.num_guests}
+              <strong>Total Guests:</strong> {guest.num_guests}
             </p>
 
             {/* Wedding Invite Image */}

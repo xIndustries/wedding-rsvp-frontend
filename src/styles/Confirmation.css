@@ -1,54 +1,82 @@
+@font-face {
+    font-family: "Winkle";
+    src: url("../assets/fonts/Winkle-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* 🌟 Fullscreen Centered Layout */
 .confirmation-container {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: "Winkle", serif; /* Apply custom font */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f8f9fa; /* Light, elegant background */
-    font-family: "Playfair Display", serif;
     text-align: center;
+    padding: 20px;
 }
 
-/* 📜 Confirmation Box */
+/* 📦 Confirmation Box */
 .confirmation-box {
+    max-width: 600px;
+    padding: 40px;
     background-color: white;
-    padding: 40px 50px;
     border-radius: 12px;
-    box-shadow: 4px 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 90%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 📷 Invite Image */
+.invite-image-container {
+    margin-bottom: 20px;
+}
+
+.invite-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* 🎉 Title */
 .confirmation-title {
-    font-size: 2rem;
-    color: #464ff1; /* Periwinkle */
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 15px;
+    color: #464ff1; /* Periwinkle */
+    margin-bottom: 10px;
+    font-family: "Winkle", serif; /* Custom font applied to title */
 }
 
 /* 💌 Message */
 .confirmation-message {
-    font-size: 1.2rem;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-family: "Winkle", serif;
 }
 
 /* 🔘 Button */
 .home-button {
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: #d64df3;
-    color: white;
+    padding: 14px 24px;
+    font-size: 1.2rem;
     font-weight: bold;
-    text-transform: uppercase;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-family: "Winkle", serif; /* Apply custom font */
+}
+
+/* 🏠 Home Button */
+.home-button {
+    background-color: #46d2c7 !important; /* Cyan */
+    color: white !important;
+    border: none !important;
 }
 
 .home-button:hover {
-    background-color: #b63ae0;
+    background-color: #3ab5a9 !important;
     transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(42, 161, 152, 0.4);
 }
