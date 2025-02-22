@@ -1,59 +1,59 @@
-/* 🌌 Web3-Inspired Theme */
+/* 🌟 Import Custom Font (Winkle) */
+@font-face {
+    font-family: "Winkle";
+    src: url("../assets/fonts/Winkle-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 🌌 Elegant Web3-Inspired Theme */
 .home-container {
-    background-color: #1a1d2b;
-    color: #fff;
-    font-family: "Orbitron", sans-serif;
+    background-color: #f8f9fa; /* Light, elegant background */
+    color: #333; /* Darker text for readability */
+    font-family: "Winkle", serif; /* Apply custom font */
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
 }
 
-/* 🏆 Content Box */
-.home-content {
-    /* max-width: 600px; */
-    width: 800px;
+/* 📦 Home Box */
+.home-box {
+    max-width: 600px;
     padding: 40px;
-    background: rgba(26, 29, 43, 0.95);
+    background-color: white;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(70, 79, 241, 0.8);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* 💍 Wedding Title */
+/* 💰 Meme Coin-Style Title */
 .wedding-title {
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: #d64df3;
+    font-size: 2.5rem;
     font-weight: bold;
+    color: #464ff1; /* Periwinkle */
     margin-bottom: 10px;
 }
 
-/* 🏦 Web3 Subtitle */
-/* .wedding-subtitle {
-    font-size: 1.5rem;
-    color: #46d2c7;
-    margin-bottom: 20px;
-} */
-
+/* 🔥 Subtitle */
 .wedding-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #46d2c7;
-    font-family: "Orbitron", sans-serif; /* ✅ Apply Orbitron */
-    text-transform: uppercase; /* Optional: Make it ALL CAPS */
-    letter-spacing: 1.5px; /* Optional: Increase spacing for a futuristic feel */
+    font-family: "Winkle", serif; /* Custom font */
+    text-transform: uppercase;
 }
 
 /* ⏳ Countdown Timer */
 .countdown-text {
-    font-size: 1.2rem;
-    color: #ffffff;
+    font-size: 1.4rem;
+    color: #555;
     margin-bottom: 10px;
 }
 
 .countdown-timer {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
     font-weight: bold;
     color: #46d2c7;
     margin-bottom: 25px;
@@ -61,8 +61,8 @@
 
 /* 🎟 RSVP Token Input */
 .rsvp-text {
-    font-size: 1.1rem;
-    color: #bfbfbf;
+    font-size: 1.6rem;
+    color: #777;
     margin-bottom: 15px;
 }
 
@@ -74,45 +74,55 @@
     flex-direction: column;
 }
 
+/* 🔑 Token Input */
 .token-input {
-    width: 450px;
+    width: 400px;
     padding: 12px;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-family: "Winkle", serif; /* Apply Winkle font */
     border-radius: 8px;
-    border: 2px solid #464ff1;
+    border: 1px solid #464ff1;
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
     transition: all 0.3s ease-in-out;
+}
+
+/* 🔑 Token Input Placeholder */
+.token-input::placeholder {
+    font-family: "Winkle", serif; /* ✅ Apply Winkle font to placeholder */
+    color: rgba(51, 51, 51, 0.5); /* Softer color for placeholder */
+    font-size: 1rem;
+    text-transform: uppercase; /* Optional: Make it look more futuristic */
+    letter-spacing: 1px; /* Optional: Add some spacing */
 }
 
 .token-input:focus {
     border-color: #46d2c7;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 10px rgba(70, 79, 241, 0.5);
 }
 
 /* 🎟 Verify Invitation Button */
 .submit-button {
-    width: 30%;
-    padding: 12px 24px;
+    width: 40%;
+    padding: 12px;
     font-size: 1.2rem;
-    font-weight: lighter;
+    font-weight: bold;
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    font-family: "Orbitron", sans-serif; /* ✅ Apply Orbitron */
-    background-color: #464ff1 !important; /* 🟣 Force Periwinkle */
+    font-family: "Winkle", serif;
+    background-color: #464ff1 !important;
     color: white !important;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(70, 79, 241, 0.3); /* Soft glow effect */
+    box-shadow: 0px 4px 10px rgba(70, 79, 241, 0.4);
 }
 
-/* 🔥 Hover Effect */
 .submit-button:hover {
-    background-color: #2aa198 !important; /* 🟢 Force Cyan Hover */
-    box-shadow: 0 6px 12px rgba(42, 161, 152, 0.4);
+    background-color: #3ab5a9 !important;
     transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(42, 161, 152, 0.4);
 }
 
 /* 🛑 Error Message */
@@ -138,9 +148,10 @@
     animation: shake 0.3s ease-in-out;
 }
 
-/* ✨ Shake Animation for Invalid Input */
+/* ✨ Shake Animation */
 @keyframes shake {
-    0% {
+    0%,
+    100% {
         transform: translateX(0);
     }
     25% {
@@ -151,8 +162,5 @@
     }
     75% {
         transform: translateX(-5px);
-    }
-    100% {
-        transform: translateX(0);
     }
 }

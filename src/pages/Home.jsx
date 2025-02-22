@@ -50,22 +50,26 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div className="home-content">
-        {/* 💍 Crypto-Inspired Wedding Title */}
+      <div className="home-box">
+        {/* 💰 Meme Coin-Style Wedding Header */}
         <h1 className="wedding-title">Axel & Daphne</h1>
-        <h2 className="wedding-subtitle">Wedding Smart Contract Deployed</h2>
+        <h2 className="wedding-subtitle">
+          Contract Deployed. No Rug, Just Love!
+        </h2>
 
         {/* ⏳ Countdown Timer */}
-        <p className="countdown-text">💍 Genesis Block Confirmation in...</p>
+        <p className="countdown-text">💍 Genesis Block Minting Ends In...</p>
         <div className="countdown-timer">
           <Countdown date={weddingDate} />
         </div>
 
         {/* 🎟 RSVP Token Entry */}
+        {/* <p className="rsvp-text">
+          ONLY WHITELISTED ADDRESSES CAN CLAIM THEIR ALLOCATION!
+        </p> */}
         <p className="rsvp-text">
-          🎟 Only whitelisted invitees can mint their RSVP.
+          Enter your invitation token below to verify eligibility:
         </p>
-        <p className="rsvp-text">Enter your invitation token below:</p>
 
         <form className="token-form" onSubmit={handleSubmit}>
           <input
@@ -77,7 +81,7 @@ const Home = () => {
             className={`token-input ${error ? "input-error" : ""}`} // Highlight input on error
           />
           <button type="submit" className="submit-button">
-            Verify Invitation
+            VERIFY INVITATION
           </button>
 
           {/* 🔥 Error Message with Fade-Out Animation */}
