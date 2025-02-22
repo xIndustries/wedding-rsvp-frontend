@@ -53,7 +53,7 @@ const Home = () => {
       <div className="home-content">
         {/* 💍 Crypto-Inspired Wedding Title */}
         <h1 className="wedding-title">Axel & Daphne</h1>
-        <h2 className="wedding-subtitle">Wedding Smart Contract Deployed.</h2>
+        <h2 className="wedding-subtitle">Wedding Smart Contract Deployed</h2>
 
         {/* ⏳ Countdown Timer */}
         <p className="countdown-text">💍 Genesis Block Confirmation in...</p>

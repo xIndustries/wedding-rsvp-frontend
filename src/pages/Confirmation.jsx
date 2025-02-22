@@ -7,10 +7,9 @@ const Confirmation = () => {
   return (
     <div className="confirmation-container">
       <div className="confirmation-box">
-        <h2 className="confirmation-title">🎉 Thank You for RSVPing! 🎉</h2>
+        <h2 className="confirmation-title">Thank You for your RSVP</h2>
         <p className="confirmation-message">
           Your response has been successfully recorded. <br />
-          We can't wait to celebrate with you! 💍✨
         </p>
 
         {/* 🔘 "Back to Home" Button */}

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getGuestDetails, submitRSVP } from "../api";
-import "../styles/RSVP.css"; // Ensure styling is updated
+import "../styles/RSVP.css";
+import invitationImage from "../assets/wedding.jpg";
 
 const RSVP = () => {
   const { token } = useParams();
@@ -56,28 +57,38 @@ const RSVP = () => {
         ) : (
           <>
             <h2 className="rsvp-title">
-              🚀 Welcome, <span>{guest.name}</span>!
+              <span>Welcome,</span> <span>{guest.name}!</span>
             </h2>
-            <p className="rsvp-text">
-              Your wallet has been whitelisted. Mint your RSVP below:
+
+            <p className="rsvp-subtitle">
+              Your invitation is confirmed. Please RSVP below:
             </p>
 
             <p className="guest-count">
-              <strong>🎟 Total Guests:</strong> {guest.num_guests}
+              <strong> Total Guests:</strong> {guest.num_guests}
             </p>
+
+            {/* Wedding Invite Image */}
+            <div className="invite-image-container">
+              <img
+                src={invitationImage}
+                alt="Wedding Invite"
+                className="invite-image"
+              />
+            </div>
 
             <div className="button-group">
               <button
                 className="rsvp-btn attending"
                 onClick={() => handleRSVP("Attending")}
               >
-                ✅ Attending
+                Attending
               </button>
               <button
                 className="rsvp-btn not-attending"
                 onClick={() => handleRSVP("Not Attending")}
               >
-                ❌ Not Attending
+                Not Attending
               </button>
             </div>
           </>
