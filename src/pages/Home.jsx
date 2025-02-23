@@ -1,21 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Countdown from "react-countdown";
-import { getGuestDetails } from "../api"; // Ensure this function exists
+import { getGuestDetails } from "../api";
 import "../styles/Home.css";
+import backgroundImage from "../assets/invitation_background.jpg"; // Import the background image
 
 const weddingDate = new Date("2025-07-27T19:00:00");
 
 const Home = () => {
   const [token, setToken] = useState("");
-  const [error, setError] = useState(""); // 🔥 Track error messages
-  const [fadeOut, setFadeOut] = useState(false); // 🔥 Track fade-out animation
+  const [error, setError] = useState("");
+  const [fadeOut, setFadeOut] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error before validation
-    setFadeOut(false); // Reset animation state
+    setError("");
+    setFadeOut(false);
 
     if (token.trim() === "") {
       setError("⚠️ Please enter your invitation token.");
@@ -24,9 +25,9 @@ const Home = () => {
     }
 
     try {
-      const guest = await getGuestDetails(token); // 🔍 Check if the token is valid
+      const guest = await getGuestDetails(token);
       if (guest) {
-        navigate(`/invite/${token}`); // ✅ Redirect to invitation page
+        navigate(`/invite/${token}`);
       } else {
         setError("❌ Invalid or unauthorized token.");
         clearErrorAfterDelay();
@@ -37,24 +38,37 @@ const Home = () => {
     }
   };
 
-  // 🔥 Clears error after 3 seconds with fade-out animation
   const clearErrorAfterDelay = () => {
     setTimeout(() => {
-      setFadeOut(true); // Start fade-out animation
+      setFadeOut(true);
       setTimeout(() => {
-        setError(""); // Remove error completely
-        setFadeOut(false); // Reset fade-out state
-      }, 500); // Matches CSS animation duration
+        setError("");
+        setFadeOut(false);
+      }, 500);
     }, 2500);
   };
 
   return (
     <div className="home-container">
-      <div className="home-box">
+      <div
+        className="home-box"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
         {/* 💰 Meme Coin-Style Wedding Header */}
-        <h1 className="wedding-title">Axel & Daphne</h1>
+        <h1 className="wedding-title">
+          <span className="axel-name">Axel</span>{" "}
+          <span className="text-and">and</span>{" "}
+          <span className="daphne-name">Daphne</span>
+        </h1>
+
         <h2 className="wedding-subtitle">
-          Contract Deployed. No Rug, Just Love!
+          Contract Deployed.
+          <br /> No Rug, Just Love!
         </h2>
 
         {/* ⏳ Countdown Timer */}
@@ -64,9 +78,6 @@ const Home = () => {
         </div>
 
         {/* 🎟 RSVP Token Entry */}
-        {/* <p className="rsvp-text">
-          ONLY WHITELISTED ADDRESSES CAN CLAIM THEIR ALLOCATION!
-        </p> */}
         <p className="rsvp-text">
           Enter your invitation token below to verify eligibility:
         </p>
@@ -78,13 +89,12 @@ const Home = () => {
             value={token}
             onChange={(e) => setToken(e.target.value)}
             required
-            className={`token-input ${error ? "input-error" : ""}`} // Highlight input on error
+            className={`token-input ${error ? "input-error" : ""}`}
           />
           <button type="submit" className="submit-button">
             VERIFY INVITATION
           </button>
 
-          {/* 🔥 Error Message with Fade-Out Animation */}
           {error && (
             <p className={`error-message ${fadeOut ? "fade-out" : ""}`}>
               {error}

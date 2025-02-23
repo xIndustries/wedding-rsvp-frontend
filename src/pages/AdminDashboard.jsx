@@ -133,7 +133,7 @@ const AdminDashboard = () => {
         {/* 📊 Axel & Daphne Family Stats */}
         <div className="family-stats-container">
           <div className="family-stats-box">
-            <h3>Axel Guests</h3>
+            <h3>Axel's Guests</h3>
             <p>
               Total Invited: <span>{familyStats.axelTotal}</span>
             </p>
@@ -145,7 +145,7 @@ const AdminDashboard = () => {
             </p>
           </div>
           <div className="family-stats-box">
-            <h3>Daphne Guests</h3>
+            <h3>Daphne's Guests</h3>
             <p>
               Total Invited: <span>{familyStats.daphneTotal}</span>
             </p>
